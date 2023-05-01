@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarcaTruco</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="./script.js"></script>
+</head>
+
+<body>
+
+  <div class="Card">
+    <div class="Nomes">
+      <input class="ClassInput" type="Text" value="Nós">
+      <input class="ClassInput" type="Text" value="Eles">
+    </div>
+    <div class="QuantidadePontos">
+      <input id="PontosTime1" class="ClassInput" type="number" value="0" style="font-size: 65px;">
+      <input id="PontosTime2" class="ClassInput" type="number" value="0" style="font-size: 65px;">
+    </div>
+    <div class="AcaoPontos">
+      <div>
+        <button id="MenosTime1" class="BtnMenosMais">-</button>
+        <button id="MaisTime1" class="BtnMenosMais">+</button>
+      </div>
+      <div>
+        <button id="MenosTime2" class="BtnMenosMais">-</button>
+        <button id="MaisTime2" class="BtnMenosMais">+</button>
+      </div>
+    </div>
+    <div class="BtnTruco"></div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      console.log("teste jquery");
+    });
+
+    // FUNCTION MENOS TIME 1
+    document.getElementById("MenosTime1").addEventListener("click", function () {
+      var Pontos = document.getElementById("PontosTime1");
+      if (parseInt(Pontos.value) != 0) {
+        Pontos.value = parseInt(Pontos.value) - 1;
+      }
+    });
+    // FUNCTION MENOS TIME 2
+    document.getElementById("MenosTime2").addEventListener("click", function () {
+      var Pontos = document.getElementById("PontosTime2");
+      if (parseInt(Pontos.value) != 0) {
+        Pontos.value = parseInt(Pontos.value) - 1;
+      }
+    });
+    // FUNCTION MAIS TIME 1
+    document.getElementById("MaisTime1").addEventListener("click", function () {
+      var Pontos = document.getElementById("PontosTime1");
+      if (parseInt(Pontos.value) != 12) {
+        Pontos.value = parseInt(Pontos.value) + 1;
+      }
+    });
+    // FUNCTION MAIS TIME 2
+    document.getElementById("MaisTime2").addEventListener("click", function () {
+      var Pontos = document.getElementById("PontosTime2");
+      if (parseInt(Pontos.value) != 12) {
+        Pontos.value = parseInt(Pontos.value) + 1;
+      }
+    });
+  </script>
+
+</body>
+
+</html>
