@@ -94,7 +94,8 @@ body {
   border-color: black;
   font-size: 24px;
   transition: background-color 0.3s ease;
-  width: 180px;
+  /* width: 180px; */
+  width: 50%;
 }
 
 .ClassLimpar {
@@ -114,7 +115,8 @@ body {
   border-color: black;
   font-size: 14px;
   transition: background-color 0.3s ease;
-  width: 70px;
+  /* width: 70px; */
+  width: 20%;
 }
 
 .Footer {
