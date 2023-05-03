@@ -33,9 +33,7 @@ body {
 .QuantidadePontos {
   display: flex;
   justify-content: space-evenly;
-  /* gap: 80px; */
-  /* padding-top: 20px; */
-  padding-top: 150px;
+  padding-top: 80px;
 }
 
 .QuantidadePontos h2 {
@@ -45,9 +43,7 @@ body {
 .AcaoPontos {
   display: flex;
   justify-content: space-around;
-  /* gap: 80px; */
-  /* padding-top: 20px; */
-  padding-top: 140px;
+  padding-top: 70px;
 }
 
 .BtnMenosMais {
@@ -73,8 +69,6 @@ body {
   border-color: black;
   font-size: 14px;
   transition: background-color 0.3s ease;
-  /* width: 50px; */
-  /* height: 50px; */
 }
 
 .QuantidadePontos input:focus {
@@ -85,7 +79,7 @@ body {
 .ClassTruco {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 .ClassTruco a {
