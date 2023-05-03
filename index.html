@@ -32,12 +32,25 @@
         <a id="MaisTime2" href="#">➕</a>
       </div>
     </div>
-    <div class="BtnTruco"></div>
+    <div class="ClassTruco">
+      <a id="BtnTruco" href="#">♣ TRUCO ♣</a>
+    </div>
+
+    <div class="ClassLimpar">
+      <a id="Limpar1" href="#"> Limpar 🧹</a>
+      <a id="Limpar2" href="#"> Limpar 🧹</a>
+    </div>
+
+    <footer class="Footer">
+      <h5>Desenvolvido por Fábio Medina</h5>
+    </footer>
   </div>
 
   <script>
     $(document).ready(function () {
       console.log("teste jquery");
+      document.getElementById("PontosTime1").value = localStorage.info1 === null ? 0 : localStorage.info1;
+      document.getElementById("PontosTime2").value = localStorage.info2 === null ? 0 : localStorage.info2;
     });
 
     // FUNCTION MENOS TIME 1
@@ -46,28 +59,119 @@
       if (parseInt(Pontos.value) != 0) {
         Pontos.value = parseInt(Pontos.value) - 1;
       }
+      Storage();
     });
+
     // FUNCTION MENOS TIME 2
     document.getElementById("MenosTime2").addEventListener("click", function () {
       var Pontos = document.getElementById("PontosTime2");
       if (parseInt(Pontos.value) != 0) {
         Pontos.value = parseInt(Pontos.value) - 1;
       }
+      Storage();
     });
+
     // FUNCTION MAIS TIME 1
     document.getElementById("MaisTime1").addEventListener("click", function () {
       var Pontos = document.getElementById("PontosTime1");
+      var Truco = document.getElementById("BtnTruco");
+      const opc = Truco.innerHTML;
       if (parseInt(Pontos.value) != 12) {
-        Pontos.value = parseInt(Pontos.value) + 1;
+        if (Truco.innerHTML !== "♣ TRUCO ♣") {
+          switch (opc) {
+            case '♣ TRUCO (3) ♣':
+              Pontos.value = parseInt(Pontos.value) + 3 >= 12 ? 12 : parseInt(Pontos.value) + 3;
+              break;
+            case '♣ TRUCO (6) ♣':
+              Pontos.value = parseInt(Pontos.value) + 6 >= 12 ? 12 : parseInt(Pontos.value) + 6;
+              break;
+            case '♣ TRUCO (9) ♣':
+              Pontos.value = parseInt(Pontos.value) + 9 >= 12 ? 12 : parseInt(Pontos.value) + 9;
+              break;
+            case '♣ TRUCO (12) ♣':
+              Pontos.value = parseInt(Pontos.value) + 12 >= 12 ? 12 : parseInt(Pontos.value) + 12;
+              break;
+          }
+          Truco.innerHTML = "♣ TRUCO ♣";
+        }
+        else {
+          Pontos.value = parseInt(Pontos.value) + 1;
+        }
       }
+      Storage();
     });
+
     // FUNCTION MAIS TIME 2
     document.getElementById("MaisTime2").addEventListener("click", function () {
       var Pontos = document.getElementById("PontosTime2");
+      var Truco = document.getElementById("BtnTruco");
+      const opc = Truco.innerHTML;
       if (parseInt(Pontos.value) != 12) {
-        Pontos.value = parseInt(Pontos.value) + 1;
+        if (Truco.innerHTML !== "♣ TRUCO ♣") {
+          switch (opc) {
+            case '♣ TRUCO (3) ♣':
+              Pontos.value = parseInt(Pontos.value) + 3 >= 12 ? 12 : parseInt(Pontos.value) + 3;
+              break;
+            case '♣ TRUCO (6) ♣':
+              Pontos.value = parseInt(Pontos.value) + 6 >= 12 ? 12 : parseInt(Pontos.value) + 6;
+              break;
+            case '♣ TRUCO (9) ♣':
+              Pontos.value = parseInt(Pontos.value) + 9 >= 12 ? 12 : parseInt(Pontos.value) + 9;
+              break;
+            case '♣ TRUCO (12) ♣':
+              Pontos.value = parseInt(Pontos.value) + 12 >= 12 ? 12 : parseInt(Pontos.value) + 12;
+              break;
+          }
+          Truco.innerHTML = "♣ TRUCO ♣";
+        }
+        else {
+          Pontos.value = parseInt(Pontos.value) + 1;
+        }
+      }
+      Storage();
+    });
+
+    // BTN TRUCO
+    document.getElementById("BtnTruco").addEventListener("click", function () {
+      var Truco = document.getElementById("BtnTruco");
+      const opc = Truco.innerHTML;
+      switch (opc) {
+        case '♣ TRUCO ♣':
+          Truco.innerHTML = "♣ TRUCO (3) ♣";
+          break;
+        case '♣ TRUCO (3) ♣':
+          Truco.innerHTML = "♣ TRUCO (6) ♣";
+          break;
+        case '♣ TRUCO (6) ♣':
+          Truco.innerHTML = "♣ TRUCO (9) ♣";
+          break;
+        case '♣ TRUCO (9) ♣':
+          Truco.innerHTML = "♣ TRUCO (12) ♣";
+          break;
+        default:
+          Truco.innerHTML = "♣ TRUCO ♣";
+          break;
       }
     });
+
+    // LIMPAR 1
+    document.getElementById("Limpar1").addEventListener("click", function () {
+      document.getElementById("PontosTime1").value = 0;
+      Storage();
+    });
+
+    // LIMPAR 2
+    document.getElementById("Limpar2").addEventListener("click", function () {
+      document.getElementById("PontosTime2").value = 0;
+      Storage();
+    });
+
+    // ATT STORAGE
+    function Storage() {
+      localStorage.info1 = document.getElementById("PontosTime1").value;
+      localStorage.info2 = document.getElementById("PontosTime2").value;
+    }
+
   </script>
 
 </body>
