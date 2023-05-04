@@ -49,8 +49,20 @@
   <script>
     $(document).ready(function () {
       console.log("teste jquery");
-      document.getElementById("PontosTime1").value = localStorage.info1 != '' ? localStorage.info1 : document.getElementById("PontosTime1").value = 0;
-      document.getElementById("PontosTime2").value = localStorage.info2 != '' ? localStorage.info2 : document.getElementById("PontosTime1").value = 0;
+      const p1 = localStorage.info1;
+      const p2 = localStorage.info2;
+      if (p1 != "" && p1 != null && p1 != undefined) {
+        document.getElementById("PontosTime1").value = localStorage.info1;
+      }
+      else {
+        document.getElementById("PontosTime1").value = 0
+      }
+      if (p2 != "" && p2 != null && p2 != undefined) {
+        document.getElementById("PontosTime2").value = localStorage.info2;
+      }
+      else {
+        document.getElementById("PontosTime2").value = 0
+      }
     });
 
     // FUNCTION MENOS TIME 1
